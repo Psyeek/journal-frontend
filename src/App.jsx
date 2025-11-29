@@ -11,14 +11,16 @@ function App() {
   return (
     <BrowserRouter>
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/journal" element={<JournalEntry />} />
-        <Route path="/pomodoro" element={<Pomodoro />} />
-        <Route path="/activity" element={<ActivityTracker />} />
-      </Routes>
+      <div className="pt-16">
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/journal" element={<JournalEntry />} />
+          <Route path="/pomodoro" element={<Pomodoro />} />
+          <Route path="/activity" element={<ActivityTracker />} />
+        </Routes>
+      </div>
     </BrowserRouter>
   );
 }
