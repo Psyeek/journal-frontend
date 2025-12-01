@@ -17,15 +17,11 @@ const Pomodoro = () => {
             interval = setInterval(() => {
                 setTimeLeft((prevTime) => prevTime - 1);
             }, 1000);
-        } else if (timeLeft === 0) {
-            // Only update if currently active to avoid unnecessary renders/loops
-            if (isActive) {
-                setIsActive(false);
-                // Optional: Play sound or notification here
-            }
         }
         return () => clearInterval(interval);
     }, [isActive, timeLeft]);
+
+
 
     const toggleTimer = () => {
         setIsActive(!isActive);
@@ -49,6 +45,11 @@ const Pomodoro = () => {
     };
 
     const currentMode = modes[mode];
+
+    if (timeLeft === 0 && isActive) {
+        setIsActive(false);
+        // Optional: Play sound or notification here
+    }
 
     return (
         <div className={`w-full min-h-[calc(100vh-64px)] flex flex-col items-center justify-center p-4 transition-all duration-700 ease-in-out bg-gradient-to-br ${currentMode.bg}`}>
